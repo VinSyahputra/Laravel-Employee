@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Employe;
 use Illuminate\Http\Request;
 
+
 class EmployeController extends Controller
 {
     /**
@@ -112,4 +113,5 @@ class EmployeController extends Controller
         Employe::destroy($employee->id);
         return redirect('/employees');
     }
+
 }

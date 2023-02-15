@@ -5,7 +5,10 @@
         <div class="col-md-8">
             <a href="/companies" class="btn btn-secondary">back to companies</a>
             <div class="card mt-4">
-                <div class="card-header d-flex align-items-center"><h3>{{$company->name . __(' Employees') }}</h3></div>
+                <div class="card-header d-flex align-items-center">
+                  <h3>{{$company->name . __(' Employees') }}</h3>
+                  <a href="/companies/{{ $company->id }}/export" class="text-decoration-none btn btn-success ms-auto">EXPORT</a>
+                </div>
                 <div class="card-body py-2">
                     <table class="table">
                         <thead>

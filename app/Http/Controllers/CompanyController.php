@@ -7,6 +7,7 @@ use App\Models\Employe;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CompanyController extends Controller
 {
@@ -130,5 +131,15 @@ class CompanyController extends Controller
 
         Company::destroy($company->id);
         return redirect('/companies');
+    }
+
+    public function export(Company $company)
+    {
+        // return Employe::where('company_id', $company->id)->get();
+        // return view('pdf.employee', ['data' => Employe::where('company_id', $company->id)->get()]);
+        $data = collect(Employe::where('company_id', $company->id)->get());
+        view()->share('data', $data);
+        $pdf = Pdf::loadView('pdf.employee');
+        return $pdf->download('employee.pdf');
     }
 }
