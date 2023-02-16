@@ -15,7 +15,6 @@
                 <div class="card mt-4">
                     <div class="card-header d-flex align-items-center"><h3>{{ __('Data Employee') }}</h3></div>
                     <div class="card-body py-2">
-                      @foreach ($data->chunk(10) as $employees)
                       <table class="table my-2">
                         <thead>
                           <tr>
@@ -27,7 +26,7 @@
                         </thead>
                         <tbody>
                           
-                          @foreach ($employees as $row)
+                          @foreach ($data as $row)
                           <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $row->name }}</td>
@@ -37,7 +36,6 @@
                           @endforeach
                         </tbody>
                       </table>
-                      @endforeach
                     </div>
                 </div>
             </div>
