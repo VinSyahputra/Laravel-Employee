@@ -12,14 +12,14 @@
                         <div class="card-body p-4">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Company Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="company name" value="{{ $company->name }}" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="company name" value="{{ old('name', $company->name) }}" name="name">
                                 @error('name')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="company@example.com" value="{{ $company->email }}" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="company@example.com" value="{{ old('email', $company->email) }}" name="email">
                                 @error('email')
                                 {{ $message }}
                             @enderror

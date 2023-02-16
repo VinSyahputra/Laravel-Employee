@@ -11,14 +11,14 @@
                         <div class="card-body p-4">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Employee Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="your name" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="your name" name="name" value="{{ old('name') }}">
                                 @error('name')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" value="{{ old('email') }}">
                                 @error('email')
                                 {{ $message }}
                             @enderror
@@ -26,7 +26,11 @@
                             <select class="form-select mb-4" name="company_id">
                                 <option selected>Select Company</option>
                                 @foreach ($companies as $company)
-                                    <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                    @if (old('company_id') == $company->id) 
+                                        <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
+                                    @else
+                                        <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             <div class="d-flex justify-content-end">

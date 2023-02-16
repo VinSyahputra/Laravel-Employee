@@ -16,7 +16,7 @@
                     <div class="card-header d-flex align-items-center"><h3>{{ __('Data Employee') }}</h3></div>
                     <div class="card-body py-2">
                       @foreach ($data->chunk(10) as $employees)
-                      <table class="table">
+                      <table class="table my-2">
                         <thead>
                           <tr>
                             <th scope="col">No</th>

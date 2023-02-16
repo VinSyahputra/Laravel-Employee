@@ -11,21 +11,21 @@
                         <div class="card-body p-4">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Company Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="company name" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="company name" name="name" value="{{ old('name') }}">
                                 @error('name')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="company@example.com" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="company@example.com" name="email" value="{{ old('email') }}">
                                 @error('email')
                                 {{ $message }}
                             @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="logo" class="form-label">Company logo</label>
-                                <input class="form-control @error('logo') is-invalid @enderror" type="file" id="logo" name="logo">
+                                <input class="form-control @error('logo') is-invalid @enderror" type="file" id="logo" name="logo" required>
                                 <img class="img-preview img-fluid col-sm-6 my-3" >
                                 @error('logo')
                                 {{ $message }}

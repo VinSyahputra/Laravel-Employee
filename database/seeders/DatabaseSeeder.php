@@ -24,33 +24,33 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        User::create([
-            'name' => 'transisi',
-            'email' => 'admin@transisi.id',
-            'password' => bcrypt('transisi'),
-        ]);
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('admin123'),
-        ]);
+        // User::create([
+        //     'name' => 'transisi',
+        //     'email' => 'admin@transisi.id',
+        //     'password' => bcrypt('transisi'),
+        // ]);
+        // User::create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@admin.com',
+        //     'password' => bcrypt('admin123'),
+        // ]);
 
-        Company::create([
-            'name' => 'Twitter',
-            'email' => 'twitter@mail.com',
-            'logo' => '',
-        ]);
-        Company::create([
-            'name' => 'Facebook',
-            'email' => 'facebook@mail.com',
-            'logo' => '',
-        ]);
-        Company::create([
-            'name' => 'Tiktok',
-            'email' => 'tiktok@mail.com',
-            'logo' => '',
-        ]);
+        // Company::create([
+        //     'name' => 'Twitter',
+        //     'email' => 'twitter@mail.com',
+        //     'logo' => '',
+        // ]);
+        // Company::create([
+        //     'name' => 'Facebook',
+        //     'email' => 'facebook@mail.com',
+        //     'logo' => '',
+        // ]);
+        // Company::create([
+        //     'name' => 'Tiktok',
+        //     'email' => 'tiktok@mail.com',
+        //     'logo' => '',
+        // ]);
 
-        \App\Models\Employe::factory(50)->create();
+        \App\Models\Employe::factory(200)->create();
     }
 }

@@ -12,14 +12,14 @@
                         <div class="card-body p-4">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Employee Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="your name" value="{{ $employee->name }}" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="your name" value="{{ old('name', $employee->name) }}" name="name">
                                 @error('name')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ $employee->email }}" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email', $employee->email) }}" name="email">
                                 @error('email')
                                 {{ $message }}
                             @enderror
@@ -27,7 +27,7 @@
                             <select class="form-select mb-4" name="company_id">
                                 <option selected>Select Company</option>
                                 @foreach ($companies as $company)
-                                    @if ($employee->company->id == $company->id) 
+                                    @if (old('company_id', $employee->company->id) == $company->id) 
                                         <option value="{{ $company->id }}" selected>{{ $company->name }}</option> 
                                     @else    
                                         <option value="{{ $company->id }}">{{ $company->name }}</option> 
