@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Employe;
 use Illuminate\Http\Request;
-
+use App\Imports\EmployeesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeController extends Controller
 {
@@ -114,4 +115,9 @@ class EmployeController extends Controller
         return redirect('/employees');
     }
 
+    public function import() 
+    {
+        Excel::import(new EmployeesImport,request()->file('file'));
+        return back();
+    }
 }

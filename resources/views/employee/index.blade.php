@@ -9,6 +9,14 @@
                     <a href="/employees/create" class="text-decoration-none btn btn-primary ms-auto">NEW</a>
                 </div>
                 <div class="card-body py-2">
+                  <form action="/employees/import" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="col-md-3 my-3">
+                      <input type="file" name="file" class="form-control" required>
+                    </div>
+                    <button class="btn btn-primary">Import Data</button>
+                </form>
+    
                     <table class="table">
                         <thead>
                           <tr>
@@ -38,7 +46,7 @@
                           @endforeach
                         </tbody>
                       </table>
-                      {{ $employees->links() }}
+                      {{ $employees->onEachSide(1)->links() }}
                 </div>
             </div>
         </div>

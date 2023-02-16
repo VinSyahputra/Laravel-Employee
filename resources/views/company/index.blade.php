@@ -51,5 +51,5 @@
     </div>
 </div>
 
-{{ $companies->links() }}
+{{ $companies->onEachSide(1)->links() }}
 @endsection

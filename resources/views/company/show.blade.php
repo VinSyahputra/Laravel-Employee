@@ -33,7 +33,7 @@
                           @endforeach
                         </tbody>
                       </table>
-                      {{ $employees->links() }}
+                      {{ $employees->onEachSide(1)->links() }}
                 </div>
             </div>
         </div>
