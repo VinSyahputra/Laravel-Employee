@@ -23,15 +23,8 @@
                                 {{ $message }}
                             @enderror
                             </div>
-                            <select class="form-select mb-4" name="company_id">
+                            <select class="form-select mb-4" name="company_id" id="select_company">
                                 <option selected>Select Company</option>
-                                @foreach ($companies as $company)
-                                    @if (old('company_id') == $company->id) 
-                                        <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
-                                    @else
-                                        <option value="{{ $company->id }}">{{ $company->name }}</option>
-                                    @endif
-                                @endforeach
                             </select>
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">CREATE</button>
@@ -42,4 +35,19 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '/getcompany',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $.each(data, function(key, value) {
+                        $('#select_company').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

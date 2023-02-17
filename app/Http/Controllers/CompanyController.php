@@ -142,4 +142,10 @@ class CompanyController extends Controller
         $pdf = Pdf::loadView('pdf.employee');
         return $pdf->download('employee.pdf');
     }
+
+    public function getCompanyData()
+    {
+        $companyData = Company::all();
+        return response()->json($companyData);
+    }
 }

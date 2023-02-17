@@ -28,5 +28,6 @@ Route::resource('/companies', CompanyController::class)->middleware('auth');
 Route::resource('/employees', EmployeController::class)->middleware('auth');
 
 Route::get('/companies/{company}/export', [CompanyController::class, 'export'])->middleware('auth');
+Route::get('/getcompany', [CompanyController::class, 'getCompanyData'])->middleware('auth');
 
-Route::post('/employees/import', [EmployeController::class, 'import']);
+Route::post('/employees/import', [EmployeController::class, 'import'])->middleware('auth');
