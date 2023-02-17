@@ -12,7 +12,10 @@
                   <form action="/employees/import" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-3 my-3">
-                      <input type="file" name="file" class="form-control" required>
+                      <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" required>
+                      @error('file')
+                        {{ $message }}
+                      @enderror
                     </div>
                     <button class="btn btn-primary">Import Data</button>
                 </form>

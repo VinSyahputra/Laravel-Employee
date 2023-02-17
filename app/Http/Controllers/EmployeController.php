@@ -115,9 +115,12 @@ class EmployeController extends Controller
         return redirect('/employees');
     }
 
-    public function import() 
+    public function import(Request $request)
     {
-        Excel::import(new EmployeesImport,request()->file('file'));
+        $request->validate([
+            'file' => 'required|file|mimes:csv'
+        ]);
+        Excel::import(new EmployeesImport, request()->file('file'));
         return back();
     }
 }
